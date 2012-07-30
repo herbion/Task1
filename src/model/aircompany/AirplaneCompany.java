@@ -10,7 +10,7 @@ import model.airplane.Airplane;
 import model.airplane.factory.BoeingFactory;
 import contoller.util.SerializationUtil;
 
-public class CopyOfAirplaneCompany implements Serializable {
+public class AirplaneCompany implements Serializable {
     private static final long serialVersionUID = 2230728088365592537L;
     private long lastRaiseID = 0;
     /**
@@ -19,7 +19,7 @@ public class CopyOfAirplaneCompany implements Serializable {
      * @return Returns Instance of airplane company using BoeingFactory with
      *         default Random of factory.
      */
-    public static CopyOfAirplaneCompany getInstance(Long count) {
+    public static AirplaneCompany getInstance(Long count) {
 	return getInstance(count, null);
     }
 
@@ -43,10 +43,10 @@ public class CopyOfAirplaneCompany implements Serializable {
 //	}
 //	return airCompany;
 //    }
-    public static CopyOfAirplaneCompany getInstance(Long count, Random rand) {
+    public static AirplaneCompany getInstance(Long count, Random rand) {
 	if (count == null)
 	    throw new NullPointerException("Count == null");
-	CopyOfAirplaneCompany company = new CopyOfAirplaneCompany("SomeAirCompanyName");
+	AirplaneCompany company = new AirplaneCompany("SomeAirCompanyName");
 	BoeingFactory factory = new BoeingFactory();
 	if (rand != null)
 	    factory.setRand(rand);
@@ -62,11 +62,11 @@ public class CopyOfAirplaneCompany implements Serializable {
      * @return	Instance of Airplane company
      * @throws IOException Throws exception when something wrong :)
      */
-    public static CopyOfAirplaneCompany getInstance(String fileName)
+    public static AirplaneCompany getInstance(String fileName)
 	    throws IOException {
 	if (fileName == null || fileName.isEmpty())
 	    throw new IllegalArgumentException("Path to file cannot be null or empty");
-	return SerializationUtil.<CopyOfAirplaneCompany> readObject(fileName);
+	return SerializationUtil.<AirplaneCompany> readObject(fileName);
     }
     public void addAirplane(Airplane airplane) {
 	raiseDataBase.add(new Raise(airplane, ++lastRaiseID));
@@ -74,11 +74,11 @@ public class CopyOfAirplaneCompany implements Serializable {
     public final String AirCompanyName;
     private List<Raise> raiseDataBase = new ArrayList<Raise>();
 
-    public CopyOfAirplaneCompany(String airCompanyName) {
+    public AirplaneCompany(String airCompanyName) {
 	AirCompanyName = airCompanyName;
     }
 
-    public CopyOfAirplaneCompany(String airCompanyName, List<Raise> raiseDataBase) {
+    public AirplaneCompany(String airCompanyName, List<Raise> raiseDataBase) {
 	nullCheck(raiseDataBase, "Raises cannot be null");
 	this.raiseDataBase = raiseDataBase;
 	AirCompanyName = airCompanyName;
