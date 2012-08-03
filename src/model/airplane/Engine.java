@@ -7,26 +7,6 @@ public class Engine implements Serializable {
     private String modelName = "Defaulf engine model";
     private int maximumEngineThrust = 0;
 
-    public String getEngineModelName() {
-	return modelName;
-    }
-
-    public void setEngineModelName(String modelName) {
-	this.modelName = modelName;
-    }
-
-    public int getMaximumEngineThrust() {
-	return maximumEngineThrust;
-    }
-
-    public void setMaximumEngineThrust(int maximumEngineThrust) {
-	if (maximumEngineThrust > 0)
-	    this.maximumEngineThrust = maximumEngineThrust;
-	else
-	    throw new IllegalArgumentException(
-		    "maxThrust can\'t be less than zero.");
-    }
-
     public Engine() {
 	super();
     }
@@ -35,6 +15,26 @@ public class Engine implements Serializable {
 	super();
 	this.modelName = modelName;
 	this.maximumEngineThrust = maximumEngineThrust;
+    }
+
+    public String getEngineModelName() {
+	return modelName;
+    }
+
+    public int getMaximumEngineThrust() {
+	return maximumEngineThrust;
+    }
+
+    public void setEngineModelName(String modelName) {
+	this.modelName = modelName;
+    }
+
+    public void setMaximumEngineThrust(int maximumEngineThrust) {
+	if (maximumEngineThrust > 0)
+	    this.maximumEngineThrust = maximumEngineThrust;
+	else
+	    throw new IllegalArgumentException(
+		    "maxThrust can\'t be less than zero.");
     }
 
     @Override

@@ -2,10 +2,7 @@ package model.airplane;
 
 import java.io.Serializable;
 
-// TODO: Implement HashCode method.
 public abstract class Airplane implements Serializable {
-    private static final long serialVersionUID = 3563389091880868027L;
-
     public abstract static class AbstractBuilder {
 	protected String modelTitle;
 	protected int passengers;
@@ -84,6 +81,8 @@ public abstract class Airplane implements Serializable {
 
     }
 
+    private static final long serialVersionUID = 3563389091880868027L;
+
     private String modelTitle;
     private final int passengersCount;
     private final int cargoWeight;
@@ -95,7 +94,8 @@ public abstract class Airplane implements Serializable {
     protected final Carcas dimensions;
 
     private long maximumRange;
-    // TODO: public or package visibility? 
+
+    // TODO: public or package visibility?
     Airplane(AbstractBuilder builder) {
 	modelTitle = builder.modelTitle;
 	engine = builder.engine;
@@ -108,8 +108,8 @@ public abstract class Airplane implements Serializable {
 	typicalCruiseSpeed = builder.typicalCruiseSpeed;
     }
 
-    protected Airplane(String modelTitle, int passengersCount,
-	    int cargoWeight, int maximumFuelCapacity, int maximumTakeoffWeight,
+    protected Airplane(String modelTitle, int passengersCount, int cargoWeight,
+	    int maximumFuelCapacity, int maximumTakeoffWeight,
 	    int typicalCruiseSpeed, Engine engine, Carcas dimensions,
 	    long maximumRange) {
 	super();
@@ -166,14 +166,14 @@ public abstract class Airplane implements Serializable {
 
     @Override
     public String toString() {
-	return /*"Airplane"*/ 
-		getClass().getSimpleName() + "\n[" + "\n* modelTitle=" + modelTitle
-		+ "\n* passengersCount=" + passengersCount
-		+ "\n* cargoWeight=" + cargoWeight + "cu ft" + "\n* engine="
-		+ engine + "\n* dimensions=" + dimensions
-		+ "\n* maximumFuelCapacity=" + maximumFuelCapacity + "L"
-		+ "\n* maximumTakeoffWeight=" + maximumTakeoffWeight + "kg"
-		+ "\n* typicalCruiseSpeed=" + typicalCruiseSpeed + "kmph"
-		+ "\n* maximumRange=" + maximumRange + "km" + "\n]";
+	return /* "Airplane" */
+	getClass().getSimpleName() + "\n[" + "\n* modelTitle=" + modelTitle
+		+ "\n* passengersCount=" + passengersCount + "\n* cargoWeight="
+		+ cargoWeight + "cu ft" + "\n* engine=" + engine
+		+ "\n* dimensions=" + dimensions + "\n* maximumFuelCapacity="
+		+ maximumFuelCapacity + "L" + "\n* maximumTakeoffWeight="
+		+ maximumTakeoffWeight + "kg" + "\n* typicalCruiseSpeed="
+		+ typicalCruiseSpeed + "kmph" + "\n* maximumRange="
+		+ maximumRange + "km" + "\n]";
     }
 }

@@ -13,8 +13,8 @@ public class Carcas implements Serializable {
 	super();
     }
 
-    public Carcas(double wingSpan, double overallLength,
-	    double tailHeight, double interiorCabinWidth) {
+    public Carcas(double wingSpan, double overallLength, double tailHeight,
+	    double interiorCabinWidth) {
 	super();
 	this.wingSpan = wingSpan;
 	this.overallLength = overallLength;

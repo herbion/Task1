@@ -1,6 +1,3 @@
-/**
- * 
- */
 package view.menu.handler.impl.sum;
 
 import model.aircompany.AirplaneCompany;
@@ -9,10 +6,10 @@ import view.menu.MenuEntry;
 import view.menu.handler.SumMenu;
 import contoller.functools.Function;
 
-final public class SumByMaxTakeOff implements MenuEntry {
-    private final SumMenu menuRef;
+final class SumByCargoWeight implements MenuEntry {
+    private SumMenu menuRef;
 
-    public SumByMaxTakeOff(SumMenu summaryMenu) {
+    public SumByCargoWeight(SumMenu summaryMenu) {
 	menuRef = summaryMenu;
     }
 
@@ -21,13 +18,13 @@ final public class SumByMaxTakeOff implements MenuEntry {
 	menuRef.setGetterFunc(new Function<Number, Raise>() {
 	    @Override
 	    public Number invoke(Raise arg) {
-		return arg.getAirplane().getMaximumTakeoffWeight();
+		return arg.getAirplane().getCargoWeight();
 	    }
 	});
     }
 
     @Override
     public String getTitle() {
-	return " ... Takeoff Weight";
+	return " ... Cargo Weght";
     }
 }

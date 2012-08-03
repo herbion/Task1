@@ -3,6 +3,8 @@
  */
 package view.menu.handler.impl.find;
 
+import java.util.Map.Entry;
+
 import model.aircompany.AirplaneCompany;
 import model.aircompany.Raise;
 import model.airplane.Airplane;
@@ -10,7 +12,7 @@ import view.menu.MenuEntry;
 import view.menu.handler.FindMenu;
 import contoller.functools.Predicate;
 
-final public class FindByFuelConsumption implements MenuEntry {
+final class FindByFuelConsumption implements MenuEntry {
     /**
      * 
      */
@@ -19,27 +21,27 @@ final public class FindByFuelConsumption implements MenuEntry {
     /**
      * @param newFindMenu
      */
-    public FindByFuelConsumption(FindMenu newFindMenu) {
+    FindByFuelConsumption(FindMenu newFindMenu) {
 	menuRef = newFindMenu;
-    }
-
-    @Override
-    public String getTitle() {
-	return "... with fuel consumption in range [from,to]";
     }
 
     @Override
     public void execCommand(AirplaneCompany airCompany) {
 	menuRef.updateRangeParameters("fuel consumption");
-	menuRef.setRangePredicate(new Predicate<Raise>() {
+	menuRef.setRangePredicate(new Predicate<Entry<Long, Raise>>() {
 	    @Override
-	    public Boolean apply(Raise raise) {
-		Airplane air = raise.getAirplane();
+	    public Boolean apply(Entry<Long, Raise> arg) {
+		Airplane air = arg.getValue().getAirplane();
 		double fuelConsumption = air.getMaximumFuelCapacity()
 			/ (double) air.getMaximumRange();
 		return fuelConsumption >= menuRef.getFrom()
 			&& fuelConsumption <= menuRef.getTo();
 	    }
 	});
+    }
+
+    @Override
+    public String getTitle() {
+	return "... with fuel consumption in range [from,to]";
     }
 }

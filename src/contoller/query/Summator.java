@@ -6,7 +6,8 @@ import contoller.functools.Function;
 import contoller.functools.Reduce;
 
 public class Summator {
-    public static Long sum(AirplaneCompany air, Function<? extends Number, Raise> func) {
-	return Reduce.reduce(air.getRaiseDataBase(), func).longValue();
+    public static Long sum(AirplaneCompany air,
+	    Function<? extends Number, Raise> func) {
+	return Reduce.reduce(air.getRaiseDataBase().values(), func).longValue();
     }
 }

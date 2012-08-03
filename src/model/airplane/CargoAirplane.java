@@ -1,16 +1,15 @@
 package model.airplane;
 
 public class CargoAirplane extends Airplane {
-    private static final long serialVersionUID = -1815361638619330292L;
-
-    public static class CargoAirplaneBuilder extends
-	    Airplane.AbstractBuilder {
+    public static class CargoAirplaneBuilder extends Airplane.AbstractBuilder {
 	@Override
 	public CargoAirplane build() {
 	    return new CargoAirplane(this);
 	}
 
     }
+
+    private static final long serialVersionUID = -1815361638619330292L;
 
     public CargoAirplane(CargoAirplaneBuilder builder) {
 	super(builder);

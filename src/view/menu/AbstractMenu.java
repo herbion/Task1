@@ -4,10 +4,10 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import contoller.util.input.UserInput;
-import exceptions.view.menu.NoMenuWithIndex;
-
 import model.aircompany.AirplaneCompany;
+import contoller.util.input.UserInput;
+import exceptions.view.menu.NoMenuWithIndexSignal;
+import exceptions.view.menu.WrongIndexSignal;
 
 public abstract class AbstractMenu implements MenuEntry {
 
@@ -21,47 +21,38 @@ public abstract class AbstractMenu implements MenuEntry {
 	this.subMenu.put(lastItemIndex++, menu);
     }
 
+    @Override
+    public void execCommand(AirplaneCompany company) {
+	startEventCycle(company);
+    }
+
     public void showSubMenu() {
 	// FIXME: Make if independent from 0
 	for (int menuIndex = 0; menuIndex < subMenu.size(); menuIndex++)
-	    System.out.println(MessageFormat.format("[{0}] {1}", menuIndex, subMenu.get(menuIndex).getTitle()));
+	    System.out.println(MessageFormat.format("[{0}] {1}", menuIndex,
+		    subMenu.get(menuIndex).getTitle()));
     }
 
-    @Override
-    public void execCommand(AirplaneCompany airCompany) {
-	startEventCycle(airCompany);
-    }
-
-    private void startEventCycle(AirplaneCompany airCompany) {
-	System.out.println(this.getTitle()); // FIXME
+    private void startEventCycle(AirplaneCompany company) {
+	System.out.println(this.getTitle()); 
 	if (subMenu.size() > 0) {
-//	    while (true) {
-	    	// TODO: Change UserInput(String) to UserInput(String, Type)
-		String userChoice = null;
-		showSubMenu();
-		userChoice = UserInput.getChoise("Your choise is: ");
-		if (userChoice.toLowerCase().startsWith("q")) {
-		    System.out.println("Back to previous menu.");
-		    return;
-		}
-		Integer menuIndex;
-		try {
-		    menuIndex = Integer.parseInt(userChoice);
-		} catch (Exception e) {
-		    // } catch (NumberFormatException e) {
-		    System.out.println("Wrong argument " + userChoice);
-		    // No try again, only hardcore. 
-		    //			+ "\nTry again.");
-		    return;
-		}
-		if (menuIndex >= FIRST_MENU_INDEX && menuIndex < subMenu.size())
-		    subMenu.get(menuIndex).execCommand(airCompany);
-		else {
-//		    System.out.println("There is no menu with index: " + menuIndex);
-		    throw new NoMenuWithIndex("Wrong index: " + menuIndex);
-		}
-		    
-//	    }
+	    String userChoice = null;
+	    showSubMenu();
+	    userChoice = UserInput.getChoice("Your choise is: ");
+	    if (userChoice.toLowerCase().startsWith("q")) {
+		throw new WrongIndexSignal("Back to previous menu.");
+	    }
+	    Integer menuIndex;
+	    try {
+		menuIndex = Integer.parseInt(userChoice);
+	    } catch (Exception e) {
+		throw new WrongIndexSignal("Wrong argument " + userChoice);
+	    }
+	    if (menuIndex >= FIRST_MENU_INDEX && menuIndex < subMenu.size())
+		subMenu.get(menuIndex).execCommand(company);
+	    else {
+		throw new NoMenuWithIndexSignal("Wrong index: " + menuIndex);
+	    }
 	}
     }
 }

@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 import contoller.util.input.enums.SupportedInputTypesEnum;
 
-
 public class UserInput {
     private static int DEFAULT_TRIES_COUNT = 3;
     private static Scanner scanner = new Scanner(System.in);
 
-    public static String getChoise(String greeting) {
+    public static String getChoice(String greeting) {
 	System.out.print(greeting);
 	return scanner.next();
     }
 
-    public static <T extends Number> T getChoise(String greeting,
+    public static <T extends Number> T getChoice(String greeting,
 	    SupportedInputTypesEnum type) {
 	return getChoise(greeting, type, DEFAULT_TRIES_COUNT);
     }

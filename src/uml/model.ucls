@@ -2,7 +2,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" corner="BOTTOM_RIGHT" language="java" name="model.aircompany.AirplaneCompany" project="Task1" 
     file="/Task1/src/model/aircompany/AirplaneCompany.java" binary="false">    
-    <position height="-1" width="-1" x="233" y="168"/>    
+    <position height="-1" width="-1" x="144" y="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -10,7 +10,7 @@
   </class>  
   <class id="2" corner="BOTTOM_RIGHT" language="java" name="model.aircompany.Raise" project="Task1" 
     file="/Task1/src/model/aircompany/Raise.java" binary="false">    
-    <position height="-1" width="-1" x="640" y="139"/>    
+    <position height="-1" width="-1" x="543" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -26,7 +26,7 @@
   </class>  
   <class id="4" corner="BOTTOM_RIGHT" language="java" name="model.airplane.Airplane.AbstractBuilder" project="Task1" 
     file="/Task1/src/model/airplane/Airplane.java" binary="false">    
-    <position height="-1" width="-1" x="549" y="1026"/>    
+    <position height="-1" width="-1" x="543" y="1004"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -34,7 +34,7 @@
   </class>  
   <class id="5" corner="BOTTOM_RIGHT" language="java" name="model.airplane.Engine" project="Task1" 
     file="/Task1/src/model/airplane/Engine.java" binary="false">    
-    <position height="-1" width="-1" x="153" y="583"/>    
+    <position height="-1" width="-1" x="899" y="585"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -42,7 +42,7 @@
   </class>  
   <class id="6" corner="BOTTOM_RIGHT" language="java" name="model.airplane.Carcas" project="Task1" 
     file="/Task1/src/model/airplane/Carcas.java" binary="false">    
-    <position height="-1" width="-1" x="872" y="519"/>    
+    <position height="-1" width="-1" x="861" y="209"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -50,7 +50,7 @@
   </class>  
   <class id="7" corner="BOTTOM_RIGHT" language="java" name="model.airplane.PassengerAirplane" project="Task1" 
     file="/Task1/src/model/airplane/PassengerAirplane.java" binary="false">    
-    <position height="-1" width="-1" x="171" y="838"/>    
+    <position height="-1" width="-1" x="164" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
@@ -58,54 +58,54 @@
   </class>  
   <class id="8" corner="BOTTOM_RIGHT" language="java" name="model.airplane.PassengerAirplane.PassengerBuilder" 
     project="Task1" file="/Task1/src/model/airplane/PassengerAirplane.java" binary="false">    
-    <position height="-1" width="-1" x="141" y="988"/>    
+    <position height="-1" width="-1" x="163" y="738"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <nesting id="9">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </nesting>  
-  <association id="10">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="11" name="engine"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
+  <association id="9">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="10" name="engine"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="13">    
+  <association id="12">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="14" name="airplane"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="13" name="airplane"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <nesting id="17">    
+  <nesting id="15">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="8"/>  
   </nesting>  
-  <association id="18">    
+  <generalization id="16">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="17">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="19" name="dimensions"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
+      <attribute id="18" name="dimensions"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="4"/>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
   </generalization>  
+  <nesting id="21">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </nesting>  
   <association id="22">    
-    <end type="SOURCE" refId="3" navigable="false">      
+    <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="23" name="engine"/>      
       <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    

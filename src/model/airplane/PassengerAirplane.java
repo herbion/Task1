@@ -1,15 +1,14 @@
 package model.airplane;
 
 public class PassengerAirplane extends Airplane {
-    private static final long serialVersionUID = -5642724605225244311L;
-
-    public static class PassengerBuilder extends
-	    Airplane.AbstractBuilder {
+    public static class PassengerBuilder extends Airplane.AbstractBuilder {
 	@Override
 	public PassengerAirplane build() {
 	    return new PassengerAirplane(this);
 	}
     }
+
+    private static final long serialVersionUID = -5642724605225244311L;
 
     public PassengerAirplane(PassengerBuilder builder) {
 	super(builder);
